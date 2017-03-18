@@ -44,9 +44,8 @@ inicial     ::= {: ControlC3D.reiniciar(); :} LOGICO:exp
                     :};
 
 LOGICO      ::= LOGICO:izq OR LOGICO:der
-                    {:
-                        String temp = ControlC3D.generaTemp(); 
-                        RESULT = new NodoC3D(temp);                        
+                    {:                        
+                        RESULT = new NodoC3D();                        
                         String c3d = izq.C3D + "\n"+ izq.getEtiF() + ":\n" + der.C3D;
                         RESULT.C3D = c3d;
                         RESULT.setEtiV(izq.getEtiV() + " " + der.getEtiV());
@@ -55,8 +54,8 @@ LOGICO      ::= LOGICO:izq OR LOGICO:der
 
                     | LOGICO:izq AND LOGICO:der
                     {:
-                        String temp = ControlC3D.generaTemp(); 
-                        RESULT = new NodoC3D(temp);                        
+                         
+                        RESULT = new NodoC3D();                        
                         String c3d = izq.C3D + "\n"+ izq.getEtiV() + ":\n" + der.C3D;
                         RESULT.C3D = c3d;
                         RESULT.setEtiV(der.getEtiV());
@@ -65,8 +64,7 @@ LOGICO      ::= LOGICO:izq OR LOGICO:der
 
                     | NOT LOGICO:izq 
                     {:
-                        String temp = ControlC3D.generaTemp(); 
-                        RESULT = new NodoC3D(temp);                        
+                        RESULT = new NodoC3D();                        
                         String c3d = izq.C3D;
                         RESULT.C3D = c3d;
                         RESULT.setEtiV(izq.getEtiF());
@@ -80,9 +78,8 @@ LOGICO      ::= LOGICO:izq OR LOGICO:der
 ;
 
 RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
-                    {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                    {:                        
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " > " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"
@@ -93,8 +90,7 @@ RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
 
                     | ARITMETICA:izq MENORQUE ARITMETICA:der
                     {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " < " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"
@@ -104,8 +100,7 @@ RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
 
                     |ARITMETICA:izq MAYORIGUAL ARITMETICA:der
                     {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " >= " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"
@@ -115,8 +110,7 @@ RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
 
                     |ARITMETICA:izq MENORIGUAL ARITMETICA:der
                     {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " <= " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"
@@ -126,8 +120,7 @@ RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
 
                     |ARITMETICA:izq IGUALIGUAL ARITMETICA:der
                     {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " == " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"
@@ -137,8 +130,7 @@ RELACIONAL      ::=ARITMETICA:izq MAYORQUE ARITMETICA:der
 
                     |ARITMETICA:izq DISTINTO ARITMETICA:der
                     {:
-                        String temp = ControlC3D.generaTemp();
-                        RESULT = new NodoC3D(temp); 
+                        RESULT = new NodoC3D(); 
                         RESULT.setEtiV(ControlC3D.generarEti());
                         RESULT.setEtiF(ControlC3D.generarEti());
                         String c3d = "if " + izq.getCad() + " != " + der.getCad() + " goto " + RESULT.getEtiV() + ";\n"

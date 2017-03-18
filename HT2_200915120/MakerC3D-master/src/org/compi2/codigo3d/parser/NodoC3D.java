@@ -32,6 +32,9 @@ public class NodoC3D {
         this.cad = cad;
     }
     
+    public NodoC3D() {        
+    }
+    
     public String getCad(){
         return cad;
     }
