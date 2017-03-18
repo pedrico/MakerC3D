@@ -33,7 +33,7 @@ MENORQUE        = "<"
 MAYORIGUAL      = ">="
 MENORIGUAL      = "<="
 IGUALIGUAL      = "=="
-DISTINTO        = "!"
+DISTINTO        = "!="
 
 
 
